@@ -3416,13 +3416,7 @@ static ZIPARCHIVE_METHOD(isCompressionMethodSupported)
 check if a encryption method is available in used libzip */
 static ZIPARCHIVE_METHOD(isEncryptionMethodSupported)
 {
-	zend_long method;
-	zend_bool enc = 1;
-
-	if (zend_parse_parameters(ZEND_NUM_ARGS(), "l|b", &method, &enc) == FAILURE) {
-		return;
-	}
-	RETVAL_BOOL(zip_encryption_method_supported((zip_uint16_t)method, enc));
+	RETVAL_BOOL(0);
 }
 /* }}} */
 #endif
@@ -3972,12 +3966,9 @@ static PHP_MINFO_FUNCTION(zip)
 #else
 	php_info_print_table_row(2, "ZSTD compression", "No");
 #endif
-	php_info_print_table_row(2, "AES-128 encryption",
-		zip_encryption_method_supported(ZIP_EM_AES_128, 1) ? "Yes" : "No");
-	php_info_print_table_row(2, "AES-192 encryption",
-		zip_encryption_method_supported(ZIP_EM_AES_128, 1) ? "Yes" : "No");
-	php_info_print_table_row(2, "AES-256 encryption",
-		zip_encryption_method_supported(ZIP_EM_AES_128, 1) ? "Yes" : "No");
+	php_info_print_table_row(2, "AES-128 encryption", "No");
+	php_info_print_table_row(2, "AES-192 encryption", "No");
+	php_info_print_table_row(2, "AES-256 encryption", "No");
 #endif
 
 	php_info_print_table_end();

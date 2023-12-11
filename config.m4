@@ -101,7 +101,7 @@ if test "$PHP_ZIP" != "no"; then
 
     PHP_CHECK_LIBRARY(zip, zip_file_set_encryption,
     [
-      AC_DEFINE(HAVE_ENCRYPTION, 1, [Libzip >= 1.2.0 with encryption support])
+      AC_DEFINE(HAVE_ENCRYPTION_NOT_ON_CENTOS6, 1, [Libzip >= 1.2.0 with encryption support])
     ], [
       AC_MSG_WARN(Libzip >= 1.2.0 needed for encryption support)
     ], [

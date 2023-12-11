@@ -3416,13 +3416,7 @@ static ZIPARCHIVE_METHOD(isCompressionMethodSupported)
 check if a encryption method is available in used libzip */
 static ZIPARCHIVE_METHOD(isEncryptionMethodSupported)
 {
-	zend_long method;
-	zend_bool enc = 1;
-
-	if (zend_parse_parameters(ZEND_NUM_ARGS(), "l|b", &method, &enc) == FAILURE) {
-		return;
-	}
-	RETVAL_BOOL(zip_encryption_method_supported((zip_uint16_t)method, enc));
+	RETVAL_BOOL(0);
 }
 /* }}} */
 #endif
